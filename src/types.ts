@@ -101,6 +101,9 @@ export namespace USB {
 
 export interface MacroPadConfig {
     readonly id: string;
+    readonly VID: number;
+    readonly PID: number;
+    
     defaultLayer?: number;
 
     /**
