@@ -6,9 +6,6 @@ import { HID, devicesAsync, Device } from "node-hid";
 import { MacroPadConfig, MacroPadManager, USB } from "./types";
 import { Protocol } from "./protocol";
 
-const VID = 0xF1F1;
-const PID = 0x0315;
-
 function loadConfigs(file: string): MacroPadConfig[] {
     if (!fs.existsSync(file)) {
         throw new Error(`No config found at ${file}`);
@@ -26,8 +23,8 @@ async function runMacroPad(config: MacroPadConfig) {
         const devices = await devicesAsync();
 
         return devices.find(d =>
-            d.vendorId === VID &&
-            d.productId === PID &&
+            d.vendorId === config.VID &&
+            d.productId === config.PID &&
             d.usagePage === 0xFF60 &&
             d.usage === 0x61 &&
             d.serialNumber === config.id
@@ -132,10 +129,10 @@ async function runMacroPad(config: MacroPadConfig) {
 }
 
 async function monitor(configs: MacroPadConfig[]) {
-    const devices = (await devicesAsync()).filter(d => d.vendorId === VID && d.productId === PID && d.usagePage === 0xFF60 && d.usage === 0x61);
+    const devices = (await devicesAsync()).filter(d => d.usagePage === 0xFF60 && d.usage === 0x61);
 
     console.log(`Config Devices: \n${configs.map(c => " "+c.id).join("\n")}`)
-    console.log(`Connected Devices: \n${devices.map(d => " "+d.serialNumber).join("\n")}`)
+    console.log(`QMK RAW USB Devices: \n${devices.map(d => " "+d.serialNumber).join("\n")}`)
 
     try {
         await Promise.all(
