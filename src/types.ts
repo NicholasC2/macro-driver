@@ -123,7 +123,9 @@ export interface MacroPadConfig {
     ) => void | Promise<void>;
 }
 
-
+export function defineConfig(config: MacroPadConfig): MacroPadConfig {
+    return config;
+}
 
 export class MacroPadManager {
     private currentLayer: number;
