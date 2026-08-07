@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "tsx watch src/index.ts",
+    "build": "tsc",
     "build:config": "esbuild src/config.ts --bundle --platform=node --format=cjs --outfile=dist/config.js"
   },
   "devDependencies": {
