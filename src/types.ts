@@ -116,13 +116,15 @@ export interface MacroPadConfig {
 
     keyPress?: (
         manager: MacroPadManager,
-        key: number
+        key: number,
+        layer: number
     ) => void | Promise<void>;
 
 
     keyRelease?: (
         manager: MacroPadManager,
-        key: number
+        key: number,
+        layer: number
     ) => void | Promise<void>;
 }
 
