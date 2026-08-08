@@ -61,11 +61,11 @@ async function runMacroPad(config: MacroPadConfig) {
                         if (packet.pressed) {
                             key?.press?.(current);
                             current.layers[current.getCurrentLayer()]?.press?.(current, keyId);
-                            current.config.keyPress?.(current, keyId);
+                            current.config.keyPress?.(current, keyId, current.getCurrentLayer());
                         } else {
                             key?.release?.(current);
                             current.layers[current.getCurrentLayer()]?.release?.(current, keyId);
-                            current.config.keyRelease?.(current, keyId);
+                            current.config.keyRelease?.(current, keyId, current.getCurrentLayer());
                         }
 
                         break;
