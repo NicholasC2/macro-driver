@@ -3,7 +3,11 @@
 also know as "winry315"
 
 # Firmware
-to flash use `qmk flash -kb winry/winry315 -km default -e 'EXTRAFLAGS=-DSERIAL_NUMBER=\"MP001\"'` and replace MP001 with the desired serial number
+to flash use 
+```sh
+qmk flash -kb winry/winry315 -km default -e 'EXTRAFLAGS=-DSERIAL_NUMBER=\"MP001\"'
+```
+and replace MP001 with the desired serial number
 ## keymap.c
 ```c
 #include QMK_KEYBOARD_H
