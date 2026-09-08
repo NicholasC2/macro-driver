@@ -13,6 +13,7 @@ and replace MP001 with the desired serial number
 #include QMK_KEYBOARD_H
 #include "raw_hid.h"
 
+// im using numbers from 10 because there was issues using single digit ids
 enum {
     PACKET_KEY = 10,
     PACKET_KNOB = 11,
