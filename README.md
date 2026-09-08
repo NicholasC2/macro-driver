@@ -1,8 +1,10 @@
-[Hardware I Used](<https://www.aliexpress.com/item/1005003500083583.html>)
+# Hardware
+[https://www.aliexpress.com/item/1005003500083583.html](https://www.aliexpress.com/item/1005003500083583.html)
+also know as "winry315"
 
+# Firmware
 to flash use `qmk flash -kb winry/winry315 -km default -e 'EXTRAFLAGS=-DSERIAL_NUMBER=\"MP001\"'` and replace MP001 with the desired serial number
-
-keymap.c:
+## keymap.c
 ```c
 #include QMK_KEYBOARD_H
 #include "raw_hid.h"
